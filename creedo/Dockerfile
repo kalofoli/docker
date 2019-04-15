@@ -2,6 +2,7 @@ FROM kalofoli/creedo-deps
 LABEL description="RealKD/Creedo"
 
 ADD privileges.sql /tmp
+RUN service mysql start
 RUN echo /tmp/privileges.sql | mysql -u root
 
 ADD https://bitbucket.org/realKD/creedo/downloads/Creedo-0.6.0.zip /tmp/Creedo.zip
