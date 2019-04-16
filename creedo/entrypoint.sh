@@ -1,6 +1,5 @@
 #! /bin/bash
 
-
 cmd=$1;shift
 
 
@@ -17,6 +16,7 @@ Commands:
 EOF
 }
 
+echo Action: $cmd
 case $cmd in
 	shell)
 		cd ~creedo;
@@ -24,7 +24,7 @@ case $cmd in
 	realkd)
 		cd ~creedo/realkd*
 		echo Running realkd "$@"
-		sudo Hu creedo java -jar bin/realkd-0.7.1-SNAPSHOT-jar-with-dependencies.jar "$@" ;;
+		sudo -u creedo java -jar bin/realkd-0.7.1-SNAPSHOT-jar-with-dependencies.jar "$@" ;;
 	root)
 		exec /bin/bash;;
 	creedo)
@@ -34,5 +34,6 @@ case $cmd in
 	help)
 		usage; exit 0;;
 	*)
+		echo Unknown action: $cmd.
 		usage; exit 1;;
 esac

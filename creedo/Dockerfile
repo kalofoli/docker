@@ -12,5 +12,6 @@ COPY creedo.properties creedo.properties
 COPY entrypoint.sh /var/lib/
 RUN chmod a+x /var/lib/entrypoint.sh
 
-ENTRYPOINT /var/lib/entrypoint.sh
+EXPOSE 8080/tcp
+ENTRYPOINT ["/var/lib/entrypoint.sh"]
 CMD ["shell"]
