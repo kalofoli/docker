@@ -1,7 +1,7 @@
 FROM kalofoli/creedo-deps
 LABEL description="RealKD/Creedo"
 
-RUN curl https://bitbucket.org/realKD/creedo/downloads/Creedo-0.6.0.zip -o /tmp/Creedo-latest.zip && curl https://bitbucket.org/realKD/realkd/downloads/realkd-0.7.0-release.zip -o realkd-latest.zip
+RUN curl https://bitbucket.org/realKD/creedo/downloads/Creedo-0.6.0.zip -Lo /tmp/Creedo-latest.zip && curl https://bitbucket.org/realKD/realkd/downloads/realkd-0.7.0-release.zip -Lo realkd-latest.zip
 COPY ["privileges.sql","/tmp/"]
 
 WORKDIR /home/creedo
